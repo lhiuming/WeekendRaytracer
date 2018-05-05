@@ -1,0 +1,9 @@
+# Binaries
+*.a
+*.out
+
+# Imange outputs
+*.ppm
+
+# Visual Studio 
+.vs
