@@ -4,8 +4,8 @@
 #include <math.h>
 #include <stdlib.h>
 
-class vec3
-{
+class vec3 {
+
     float e[3];
 
 public:
@@ -53,9 +53,37 @@ public:
 
 };
 
+
 // Binary arithmetic operators
 inline vec3 operator+(const vec3 &v1, const vec3 &v2) {
-    return vec3( v1.x() + v2.x(), v1.y() + v2.y(), v1.z() + v2.z() );
+    return { v1.x() + v2.x(), v1.y() + v2.y(), v1.z() + v2.z() };
 }
+
+inline vec3 operator-(const vec3 &v1, const vec3 &v2) {
+    return { v1.x() - v2.x(), v1.y() - v2.y(), v1.z() - v2.z() };
+}
+
+inline vec3 operator*(const float& a, const vec3& v) {
+    return { a * v.x(), a * v.y(), a * v.z() };
+}
+
+inline vec3 operator*(const vec3& v, const float& a) {
+    return { a * v.x(), a * v.y(), a * v.z() };
+}
+
+
+inline vec3 operator/(const vec3 &v, const float& a) {
+    return { v.x() / a, v.y() / a, v.z() / a };
+}
+
+
+// Vector operations
+
+inline vec3 normalized(const vec3& v) { return v / v.length(); }
+
+inline float dot(const vec3& v1, const vec3& v2) {
+    return v1.x() * v2.x() + v1.y() * v2.y() + v1.z() * v2.z();
+}
+
 
 #endif

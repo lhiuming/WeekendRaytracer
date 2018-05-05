@@ -20,7 +20,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\vec3.hpp">
+    <ClInclude Include="..\vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
