@@ -102,6 +102,7 @@
     <ClCompile Include="..\hello_ray.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\camera.h" />
     <ClInclude Include="..\hitable_list.h" />
     <ClInclude Include="..\sphere.h" />
     <ClInclude Include="..\hitable.h" />
