@@ -8,9 +8,10 @@ class sphere : public hitable {
 public:
     vec3 center;
     float radius;
+    material *p_material;
 
-    sphere(): radius(0) {}
-    sphere(const vec3& center, float radius) : center(center), radius(radius) {}
+    sphere(const vec3& center, float radius, material* p_material)
+        : center(center), radius(radius), p_material(p_material) { }
 
     bool hit(const ray& r, float t_min, float t_max, hit_record& rec) const override;
 };
@@ -28,6 +29,7 @@ inline bool sphere::hit(const ray& r, float t_min, float t_max, hit_record& rec)
             rec.t = t;
             rec.point = r.point_at(t);
             rec.normal = (rec.point - center) / radius;
+            rec.p_material = p_material;
             return true;
         }
         t = (-b + std::sqrt(discriminant)) / a;
@@ -35,6 +37,7 @@ inline bool sphere::hit(const ray& r, float t_min, float t_max, hit_record& rec)
             rec.t = t;
             rec.point = r.point_at(t);
             rec.normal = (rec.point - center) / radius;
+            rec.p_material = p_material;
             return true;
         }
     }

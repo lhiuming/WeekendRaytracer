@@ -3,10 +3,14 @@
 
 #include "ray.h"
 
+// forward 
+class material;
+
 struct hit_record {
     float t;
     vec3 point;
     vec3 normal;
+    material *p_material;
 };
 
 class hitable {

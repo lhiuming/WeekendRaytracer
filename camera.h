@@ -11,8 +11,8 @@ class camera {
     vec3 vertical;
 public:
     camera() :
-        origin(0, 0, 0),
-        lower_left_corner(-2, -1, -1),
+        origin(0, 0, 2),
+        lower_left_corner(-2, -1, 0),
         horizontal(4, 0, 0),
         vertical(0, 2, 0)
         {}
@@ -20,7 +20,7 @@ public:
 };
 
 inline ray camera::get_ray(float u, float v) const {
-     return ray(origin, lower_left_corner + u * horizontal + v * vertical);
+     return ray(origin, lower_left_corner + u * horizontal + v * vertical - origin);
 }
 
 #endif // CAMERA_H
